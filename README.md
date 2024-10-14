@@ -1,1 +1,1 @@
-# LFG-XLE-computational-grammar-JLM-2024
+# LFG/XLE Computational Grammar for Mandarin Chinese (Journal of Language Modelling; 2024)
