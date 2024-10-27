@@ -9,12 +9,30 @@ The grammar fragment was written using the Xerox Linguistic Environment (XLE) de
 
 ## Files in the repository
 1. restructuring.lfg
+   This file is a small LFG grammar to be run by XLE. It contains the following parts:
+   (i) CONFIG, which tells XLE which files and features to use with the grammar;
+   (ii) morphconfig, which specifies the tokenizers;
+   (iii) annotated rules;
+   (iv) templates;
+   (v) lexicon of a limited number of Chinese words.
    
-2. testsuite.lfg
+   This grammar is capable of parsing the following linguistic structures (with a limited lexicon):
+   (i) Simple SVO;
+   (ii) Exhaustive control;
+   (iii) Partial control;
+   (iv) Non-control complementation;
+   (v) Exhaustive control with inner topicalization;
+   (vi) Exhaustive control with focus fronting;
+   (vii) Partial control with inner topicalization;
+   (viii) Partial control with focus fronting;
+   (ix) Non-control complementation with inner topicalization;
+   (x) Non-control complementation with focus fronting.
+   
+3. testsuite.lfg
+   This file contains the sentences to be tested. 
+4. basic-parse-tok.fst
 
-3. basic-parse-tok.fst
-
-4. default-gen-tokenizer.fst
+5. default-gen-tokenizer.fst
    
 
 ## An illustration
