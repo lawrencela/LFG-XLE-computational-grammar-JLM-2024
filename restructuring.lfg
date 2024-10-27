@@ -1,0 +1,293 @@
+DEMO   CHINESE   CONFIG (1.0)
+  ROOTCAT   IP.
+  FILES  .
+  LEXENTRIES   (DEMO CHINESE).
+  TEMPLATES (DEMO CHINESE). 
+  RULES   (DEMO CHINESE).
+  MORPHOLOGY (DEMO CHINESE).
+  GOVERNABLERELATIONS    SUBJ OBJ OBJ2 COMP XCOMP OBL OBL-?+.
+  SEMANTICFUNCTIONS    ADJUNCT  TOPIC FOCUS DIS  POSS STANDARD.
+  NONDISTRIBUTIVES    NUM PERS CONJ-FORM.
+  EPSILON   e.
+  OPTIMALITYORDER NOGOOD.
+
+----
+
+DEMO CHINESE MORPHOLOGY (1.0)
+
+TOKENIZE:
+P!basic-parse-tok.fst G!default-gen-tokenizer.fst
+
+----
+
+DEMO   CHINESE   RULES (1.0)
+
+   IP --> (DP: (^ SUBJ)=!)
+ 	  I': ^=!;
+	 { (PERIOD)
+	 | (EXCL)
+	 | (QM)
+	 }. 
+
+"The two disjunctive options below ensure that inner top is at I'-adjoining position"
+"   I' --> { DP: ! $ (^DIS)
+                (^{XCOMP: (-> INTOP); |COMP: (-> INTOP);}* OBJ) = !;
+            I': ^=!
+          | (I)
+            VP: ^=!
+	  }. "
+
+"    I' --> { DP: ! $ (^DIS)
+                (^({XCOMP: (-> PS_LDD); |COMP: (-> PS_LDD);}{XCOMP|COMP}*) OBJ) = !;
+            I': ^=!
+          | (I)
+            VP: ^=!
+	  }. "
+
+    I' --> { DP: ! $ (^DIS) "a revised extraction path is used here"
+                @(PS_LDD-PATH);
+            I': ^=!
+          | (I)
+            VP: ^=!
+	  }.
+
+   VP --> V': ^=!.
+
+	 
+   V' --> { PRT: ^=!;
+      	    V':  ^=!
+      	  | AdvP: !$(^ADJUNCT);
+            V': ^=!
+	  |	  
+            V: ^=!; 
+ 	    (DP: (^OBJ)=!)
+	    ( {IP: (^{XCOMP: ~(-> RESTR); |COMP: ~(-> RESTR)})=!
+	      |IP[-PS_LDD]: (^XCOMP: ~(-> RESTR))=!
+	      |VP[+RESTR]: (^{XCOMP: (-> RESTR); |COMP: (-> RESTR);}) = !
+	      }
+	    )
+          }.
+
+
+   IP[-PS_LDD] --> I'[-PS_LDD]: ^=!.
+
+
+   I'[-PS_LDD] --> (I)
+                  VP: ^=!.
+
+
+   DP --> { (D)
+ 	    AP*: ! $ (^ADJUNCT);
+ 	    N: ^=!;
+	    PP*: ! $ (^ADJUNCT)
+	  | AdvP: (^SPEC)=!;
+      	    DP: ^=!
+	  }.
+	  
+   AdvP --> AdvP*: ! $ (^ADJUNCT);
+   	    Adv:^=!.
+
+
+   VP[_type $ {+RESTR}] --> {e: _type = +RESTR; "a parametrised rule with parameter declaration"
+   	      		    @(RESTR-VP)
+			    }.
+   
+   RESTR-VP = V'[+RESTR]: ^=!. "a rule macro"
+                  
+   V'[+RESTR] --> { AdvP: ! $ (^ADJUNCT);
+                    V'[+RESTR]: ^=!
+		  | V: ^=!;
+		    (DP: (^OBJ)=!)
+		  }.
+
+----
+DEMO   CHINESE   TEMPLATES (1.0)
+
+   PRED(P) = (^ PRED) = 'P'.
+
+   ASP(P) = (^ ASPECT) = P.
+
+
+   DEMONSTRATIVE(P D) = (^ DEF) = P
+			(^ DEIXIS) = D.
+			
+   TRANS(P) = {(^ PRED)='P<(^ SUBJ) (^ OBJ)>'
+	      |(^ PRED)='P<(^ SUBJ) (^ OBJ)>'
+                (^ SUBJ PRED) = 'PRO'  "this disjunctive option is for pro-drop"
+	      }.
+
+   EC-SUBJ(P) = (^PRED) = 'P<(^ SUBJ)(^ XCOMP)>'
+   	        (^SUBJ) = (^XCOMP SUBJ).
+
+   EC-OBJ(P) = (^PRED) = 'P<(^SUBJ)(^OBJ)(^XCOMP)>'
+   	       (^OBJ) = (^XCOMP SUBJ).
+
+   PC-SUBJ(P) = (^PRED) = 'P<(^SUBJ)(^COMP)>'
+                (^COMP SUBJ PRED) = 'PRO'
+		(^SUBJ P_CONTROL) = CONTROLLER
+		(^COMP SUBJ P_CONTROL) = CONTROLLEE.
+
+   "for PC-verbs that allow an optionally expressed SUBJ" "outdated"
+   "PC-optional-SUBJ(P) = {(^PRED) = 'P<(^SUBJ)(^COMP)>'
+   		       	 |(^PRED) = 'P<(^SUBJ)(^COMP)>'
+			  @(PC-PS_LDD)
+			  (^COMP SUBJ PRED) = 'PRO'
+		          (^SUBJ P_CONTROL) = CONTROLLER
+		          (^COMP SUBJ P_CONTROL) = CONTROLLEE
+			 }."
+
+   "outdated"
+   "PC-optional-SUBJ(P) = (^PRED) = 'P<(^SUBJ)(^COMP)>'
+   		       	  @(IF @UNREALISED @PC-PS_LDD-optional)."
+
+
+    PC-optional-SUBJ(P) = (^PRED) = 'P<(^SUBJ)(^COMP)>'
+    			  @(IF  @(CAT(^COMP SUBJ PRED) e) @PC-PS_LDD-optional).
+
+
+    PC-PS_LDD-optional =  @(PC-PS_LDD)
+			  (^COMP SUBJ PRED) = 'PRO'
+		          (^SUBJ P_CONTROL) = CONTROLLER
+		          (^COMP SUBJ P_CONTROL) = CONTROLLEE.
+			    
+
+   "@(CAT (^COMP SUBJ PRED) e) is UNREALISED function created by me"
+   "For @(CAT (^COMP SUBJ) DP, see Asudeh (2009) REALISED"
+   " PC-optional-SUBJ(P) = { (^PRED) = 'P<(^SUBJ)(^COMP)>'
+    			    @(CAT (^COMP SUBJ) DP)
+			  | (^PRED) = 'P<(^SUBJ)(^COMP)>'
+   		       	    @(CAT (^COMP SUBJ PRED) e)
+			    @(PC-PS_LDD)
+			    (^COMP SUBJ PRED) = 'PRO'
+		            (^SUBJ P_CONTROL) = CONTROLLER
+		            (^COMP SUBJ P_CONTROL) = CONTROLLEE
+			  }."
+			  
+   
+   VCOMP(P) =  (^ PRED) = 'P<(^ SUBJ)(^ COMP)>'.
+
+   NC-PS_LDD =  (^COMP PS_LDD) = -.
+	      
+
+   EC-PS_LDD = (^XCOMP PS_LDD) = +
+              @(CAT (^XCOMP) {IP[-PS_LDD] VP[+RESTR]}). "CAT predicate"
+
+
+   PC-PS_LDD = (^COMP PS_LDD) = +.
+
+   OBJ-PS_LDD =  {(^COMP PS_LDD) = -
+                 |(^XCOMP PS_LDD) = -
+		 }.
+   
+
+   ASPECT-C-PERF = { (^{XCOMP|COMP} ASPECT) =c perfective "Aspect under Control-Perfective"
+                     (^{XCOMP|COMP} RESTR)= +
+                   | (^{XCOMP|COMP} ASPECT) ~= perfective
+
+		   }.
+
+   ASPECT-C-EXP = { (^{XCOMP|COMP} ASPECT) =c experiential "Aspect under Control-Experiential"
+                     (^{XCOMP|COMP} RESTR)= +
+                   | (^{XCOMP|COMP} ASPECT) ~= experiential
+                   }.
+
+"long-distance dependency equation"
+   PS_LDD-PATH = (^({XCOMP: (-> PS_LDD) =c +; |COMP: (-> PS_LDD) =c +;}{XCOMP|COMP}*) OBJ) = !.
+
+   IF(P Q) = "If P then Q"
+             {~P
+             |~~P   Q}.
+
+   IFF(P Q) = "P if and only Q"
+              {P Q | ~P ~Q}.
+
+
+   "It doesn't seem okay to call on a CAT predicate using a template"
+   "REALISED = @(CAT (^COMP SUBJ) DP)."  "See Asudeh(2009) REALISED"
+
+   "REALISED = ~[@(CAT (^COMP SUBJ PRED) e)]." "This won't work"
+   
+   "UNREALISED = @(CAT (^COMP SUBJ PRED) e)."
+
+ 
+		   
+----
+
+DEMO CHINESE LEXICON (1.0)
+
+"nouns"
+
+gongzuo  N *  @(PRED task).
+
+xiaoming N *  @(PRED Xiaoming).
+
+zhangsan N * @(PRED Zhangsan).
+
+bisai N * @(PRED competition).
+
+ta N * @(PRED PRO).
+
+"adverbs"
+
+mingtian Adv * @(PRED tomorrow).
+
+lian Adv * @(PRED even).
+
+"demonstratives and classifiers"
+
+zhexiang D * @(DEMONSTRATIVE + proximal).
+
+zhechang D * @(DEMONSTRATIVE + proximal).
+
+"simple verbs"
+
+wancheng V * @(TRANS finish).
+
+wancheng-le V *  @(TRANS finish)
+                @(ASP perfective).
+
+wancheng-guo V *  @(TRANS finish)
+                @(ASP experiential).
+
+fangqi-le V * @(TRANS give-up)
+	      @(ASP perfective).
+
+"control/complementation verbs"
+
+shefa V * @(EC-SUBJ try)
+          @(EC-PS_LDD)
+	  @(ASPECT-C-PERF)
+	  @(ASPECT-C-EXP).
+
+dasuan V * @(PC-SUBJ intend)
+           @(PC-PS_LDD)
+	   @(ASPECT-C-PERF)
+	   @(ASPECT-C-EXP).
+
+jueding V * @(PC-optional-SUBJ decide).
+
+yuanliang  V * @(EC-OBJ forgive)
+                @(OBJ-PS_LDD).
+
+xiangxin V * @(VCOMP believe)
+	     @(NC-PS_LDD).
+
+shuo V * @(VCOMP say)
+         @(NC-PS_LDD).
+
+"particles"
+
+dou PRT * (^PRT-FORM) = DOU.
+
+"punctuation"
+
+. PERIOD * (^ STMT-TYPE) = declarative.
+
+, COMMA *.
+
+! EXCL * (^ STMT-TYPE) = exclamation.
+
+? QM * (^STMT-TYPE) = interrogative.
+
+
+----

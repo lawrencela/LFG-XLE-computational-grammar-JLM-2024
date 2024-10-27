@@ -1,0 +1,183 @@
+#basic SVO
+
+xiaoming mingtian wancheng zhexiang gongzuo
+
+"xiaoming tomorrow finish this task"
+
+
+
+#control (exhaustive, partial) and non-control structures
+
+xiaoming shefa mingtian wancheng zhexiang gongzuo
+
+"Xiaoming try tomorrow finish this task"
+
+xiaoming dasuan mingtian wancheng zhexiang gongzuo
+
+"Xiaoming intend tomorrow finish this task"
+
+xiaoming xiangxin mingtian wancheng zhexiang gongzuo
+
+"Xiaoming believe tomorrow finish this task"
+
+
+#control structures with Aspect under Control
+
+xiaoming shefa wancheng-le zhexiang gongzuo
+
+"Xiaoming try finish-perfective this task"
+
+xiaoming shefa wancheng-guo zhexiang gongzuo
+
+"Xiaoming try finish-experiential this task"
+
+
+#control (exhaustive, partial) and non-control structures with Inner Topicalisation
+
+xiaoming zhexiang gongzuo shefa mingtian wancheng
+
+"Xiaoming this task try tomorrow finish"
+
+xiaoming zhexiang gongzuo dasuan mingtian wancheng
+
+"Xiaoming this task intend tomorrow finish"
+
+xiaoming dasuan zhexiang gongzuo mingtian wancheng
+
+"Xiaoming intend this task tomorrow finish"
+
+xiaoming zhexiang gongzuo jueding mingtian wancheng
+
+"Xiaoming this task decide tomorrow finish"
+
+xiaoming jueding zhexiang gongzuo mingtian wancheng
+
+"Xiaoming decide this task tomorrow finish"
+
+xiaoming jueding ta zhexiang gongzuo mingtian wancheng
+
+"Xiaoming decide he this task tomorrow finish"
+
+xiaoming xiangxin zhexiang gongzuo mingtian wancheng
+
+"Xiaoming believe this task tomorrow finish"
+
+xiaoming yuanliang zhangsan zhechang bisai fangqi-le
+
+"Xiaoming forgive Zhangsan this competition give-up-perfective"
+
+
+#control (exhaustive, partial) and non-control structures with Focus Fronting
+
+xiaoming lian zhexiang gongzuo dou shefa mingtian wancheng
+
+"Xiaoming even this task all try tomorrow finish"
+
+xiaoming lian zhexiang gongzuo dou dasuan mingtian wancheng
+
+"Xiaoming even this task all intend tomorrow finish"
+
+xiaoming dasuan lian zhexiang gongzuo dou mingtian wancheng
+
+"Xiaoming intend even this task all  tomorrow finish"
+
+xiaoming lian zhexiang gongzuo dou jueding mingtian wancheng
+
+"Xiaoming even this task all decide tomorrow finish"
+
+xiaoming jueding lian zhexiang gongzuo dou mingtian wancheng
+
+"Xiaoming decide even this task all tomorrow finish"
+
+xiaoming jueding ta lian zhexiang gongzuo dou mingtian wancheng
+
+"Xiaoming decide he even this task all tomorrow finish"
+
+xiaoming xiangxin lian zhexiang gongzuo dou mingtian wancheng
+
+"Xiaoming believe even this task all tomorrow finish"
+
+xiaoming yuanliang zhangsan lian zhechang bisai dou fangqi-le
+
+"Xiaoming forgive Zhangsan even this competition all give.up-perfective"
+
+xiaoming yuanliang zhangsan lian zhechang bisai dou fangqi-le
+
+"Xiaoming forgive Zhangsan even this competition all give-up-perfective"
+
+
+#control structure (exhaustive) with Inner Topicalisation and Aspect under Control
+
+xiaoming zhexiang gongzuo shefa wancheng-guo
+
+"Xiaoming this task try finish-experiential"
+
+
+#complex embedding [two levels]
+
+xiaoming dasuan shuo zhexiang gongzuo mingtian wancheng
+
+"Xiaoming intend say this task tomorrow finish"
+
+xiaoming zhexiang gongzuo dasuan shuo mingtian wancheng
+
+"Xiaoming this task intend say tomorrow finish"
+
+
+#complex embedding [three levels]
+
+xiaoming shuo ta dasuan shefa zhexiang gongzuo mingtian wancheng
+
+"*Xiaoming say he intend try this task tomorrow finish -- ungrammatical"
+
+xiaoming shuo ta dasuan zhexiang gongzuo shefa mingtian wancheng
+
+"Xiaoming say he intend this task try tomorrow finish"
+
+xiaoming shuo ta zhexiang gongzuo dasuan shefa mingtian wancheng
+
+"Xiaoming say he this task intend try tomorrow finish"
+
+xiaoming zhexiang gongzuo shuo ta dasuan shefa mingtian wancheng
+
+"*Xiaoming this task say he intend try tomorrow finish -- ungrammatical"
+
+
+
+#the following sentences should NOT work
+
+xiaoming shefa zhexiang gongzuo mingtian wancheng
+
+"*Xiaoming try this task tomorrow finish"
+
+xiaoming shefa lian zhexiang gongzuo dou mingtian wancheng
+
+"*Xiaoming try even this task all tomorrow finish"
+
+xiaoming zhexiang gongzuo xiangxin mingtian wancheng
+
+"*Xiaoming this task believe tomorrow finish"
+
+xiaoming lian zhexiang gongzuo dou xiangxin mingtian wancheng
+
+"*Xiaoming even this task all believe tomorrow finish"
+
+xiaoming zhexiang gongzuo ta jueding mingtian wancheng
+
+"*Xiaoming this task he decide tomorrow finish"
+
+xiaoming lian zhexiang gongzuo ta dou jueding mingtian wancheng
+
+"*Xiaoming even this task he all decide tomorrow finish"
+
+xiaoming dasuan zhexiang gongzuo shuo mingtian wancheng
+
+"*Xiaming intend this task say tomorrow finish"
+
+xiaoming zhechang bisai yuanliang zhangsan fangqi-le
+
+"*Xiaoming this competition forgive Zhangsan  give-up-perfective"
+
+xiaoming lian zhechang bisai dou yuanliang zhangsan fangqi-le
+
+"*Xiaoming even this competition all forgive Zhangsan  give-up-perfective"
