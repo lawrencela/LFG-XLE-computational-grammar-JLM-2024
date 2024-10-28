@@ -29,19 +29,24 @@ The grammar fragment was written using the Xerox Linguistic Environment (XLE) de
    (ix) Non-control complementation with inner topicalization;<br/>
    (x) Non-control complementation with focus fronting.<br/>
 
-   NB: In large-scale grammar development, it is common to divide the grammar into separate files; as such, any .lfg file that the grammar developers wants to include must be listed in the CONFIG. Since this LFG grammar is relatively small, all of the above componenets are contained in a single file, namely restructuring.lfg.
+   NB: In large-scale grammar development, it is common to divide the grammar into separate files; as such, any .lfg file that the grammar developer wants to include must be listed in the CONFIG. Since this LFG grammar is relatively small, all of the above componenets are contained in a single file, namely restructuring.lfg.
    
-3. testsuite.lfg
+3. testsuite.lfg<br/>
 This file contains the sentences to be tested by parsing them through restructuring.lfg to display their linguistic analyses.
 
 NB: As a grammar becomes more complex and covers a larger fragment of a natural language, XLE's grammar-debugging facilities can help explore the linguistic consequences of the grammatical formulations so that gramamr developers can detect and correct both conceptual errors and errors of specification. By parsing the sentences in a testsuite using the grammar, grammar developers can then inspect the output to evaluate whether the grammar contains the correct linguistic constraints.
  
-5. basic-parse-tok.fst
+5. basic-parse-tok.fst<br/>
+A simple tokenizer for parsing (this is a binary file)
 
-6. default-gen-tokenizer.fst
-   
+6. default-gen-tokenizer.fst<br/>
+A simple tokenizer for generation (this is a binary file)
+
+NB: XLE makes it simple to integrate fst tokenizers into the grammar. Tokenizers insert token boundaries between words and perform tasks such as splitting punctuation off of words and lowercase initial capitals.
 
 ## An illustration
 
 
 ## Further information about LFG and computational grammar development
+
+
