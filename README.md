@@ -42,11 +42,16 @@ A simple tokenizer for parsing (this is a binary file)
 6. default-gen-tokenizer.fst<br/>
 A simple tokenizer for generation (this is a binary file)
 
-   NB: XLE makes it simple to integrate fst tokenizers into the grammar. Tokenizers insert token boundaries between words and perform tasks such as splitting punctuation off of words and lowercase initial capitals.
+   NB: XLE makes it simple to integrate finite-state tokenizers into the grammar. Tokenizers insert token boundaries between words and perform tasks such as splitting punctuation off of words and lowercase initial capitals.
 
 ## An illustration
 
 
-## Further information about LFG and computational grammar development
+## Further information
+For more information about LFG and its computational implementation, please refer to the following chapter:
+
+Forst, M. & King, T. H. (2023). Computational implementations and applications. In M. Dalrymple (Ed)., Handbook of Lexical Functional Grammar (pp. 1083-1123). Berlin: Language Science Press. DOI: 10.5281/zenodo.10185986
+
+
 
 
