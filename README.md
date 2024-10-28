@@ -16,8 +16,6 @@ The grammar fragment was written using the Xerox Linguistic Environment (XLE) de
    (iii) annotated rules;<br/>
    (iv) templates;<br/>
    (v) lexicon of a limited number of Chinese words.<br/>
-
-   In large-scale grammar development, it is common to divide the grammar into separate files; as such, any .lfg file that the grammar writer wants to include must be listed in the CONFIG. Since this LFG grammar is relatively small, all of the above componenets are contained in a single file, namely restructuring.lfg.
    
    This grammar is capable of parsing the following linguistic structures (with a limited lexicon):<br/>
    (i) Simple SVO;<br/>
@@ -30,11 +28,13 @@ The grammar fragment was written using the Xerox Linguistic Environment (XLE) de
    (viii) Partial control with focus fronting;<br/>
    (ix) Non-control complementation with inner topicalization;<br/>
    (x) Non-control complementation with focus fronting.<br/>
+
+   NB: In large-scale grammar development, it is common to divide the grammar into separate files; as such, any .lfg file that the grammar developers wants to include must be listed in the CONFIG. Since this LFG grammar is relatively small, all of the above componenets are contained in a single file, namely restructuring.lfg.
    
 3. testsuite.lfg
-This file contains the sentences to be tested by parsing them through restructuring.lfg. The
+This file contains the sentences to be tested by parsing them through restructuring.lfg to display their linguistic analyses.
 
- You have now learned how to enter a grammar into the system and how to apply it in the analysis of strings typed into XLE. It is likely for a simple grammar that all the rules are correct and that they are compatible with the lexical entries and morphological rules you have specified. But that is less likely to be true as your grammars become more complex and cover a larger fragment of a natural language. XLE's grammar-debugging facilities can help you explore the linguistic consequences of your grammatical formulations so that you can detect and correct both conceptual errors and errors of specification.
+NB: As a grammar becomes more complex and covers a larger fragment of a natural language, XLE's grammar-debugging facilities can help explore the linguistic consequences of the grammatical formulations so that gramamr developers can detect and correct both conceptual errors and errors of specification. By parsing the sentences in a testsuite using the grammar, grammar developers can then inspect the output to evaluate whether the grammar contains the correct linguistic constraints.
  
 5. basic-parse-tok.fst
 
