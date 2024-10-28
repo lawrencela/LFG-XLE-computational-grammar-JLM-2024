@@ -48,9 +48,12 @@ A simple tokenizer for generation (this is a binary file)
 
 
 ## Further information
-For more information about LFG and its computational implementation, please refer to the following chapter:
+For further information about LFG and its computational implementation, please refer to the following materials:
 
 Forst, M. & King, T. H. (2023). Computational implementations and applications. In M. Dalrymple (Ed)., Handbook of Lexical Functional Grammar (pp. 1083-1123). Berlin: Language Science Press. DOI: 10.5281/zenodo.10185986
+
+Butt, M., King, T. H., Niño, M.-E., & Segond, F. (1999). A Grammar Writer's Cookbook. Stanford: CSLI Publications.
+
 
 
 
