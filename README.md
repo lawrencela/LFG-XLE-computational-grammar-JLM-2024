@@ -9,30 +9,36 @@ The grammar fragment was written using the Xerox Linguistic Environment (XLE) de
 
 ## Files in the repository
 1. restructuring.lfg
-   This file is a small LFG grammar to be run by XLE. It contains the following parts:
-   (i) CONFIG, which tells XLE which files and features to use with the grammar;
-   (ii) morphconfig, which specifies the tokenizers;
-   (iii) annotated rules;
-   (iv) templates;
-   (v) lexicon of a limited number of Chinese words.
    
-   This grammar is capable of parsing the following linguistic structures (with a limited lexicon):
-   (i) Simple SVO;
-   (ii) Exhaustive control;
-   (iii) Partial control;
-   (iv) Non-control complementation;
-   (v) Exhaustive control with inner topicalization;
-   (vi) Exhaustive control with focus fronting;
-   (vii) Partial control with inner topicalization;
-   (viii) Partial control with focus fronting;
-   (ix) Non-control complementation with inner topicalization;
-   (x) Non-control complementation with focus fronting.
+   This file is a small LFG grammar to be run by XLE. It contains the following parts:<br/>
+   (i) CONFIG, which tells XLE which files and features to use with the grammar;<br/>
+   (ii) morphconfig, which specifies the tokenizers;<br/>
+   (iii) annotated rules;<br/>
+   (iv) templates;<br/>
+   (v) lexicon of a limited number of Chinese words.<br/>
+
+   In large-scale grammar development, it is common to divide the grammar into separate files; as such, any .lfg file that the grammar writer wants to include must be listed in the CONFIG. Since this LFG grammar is relatively small, all of the above componenets are contained in a single file, namely restructuring.lfg.
+   
+   This grammar is capable of parsing the following linguistic structures (with a limited lexicon):<br/>
+   (i) Simple SVO;<br/>
+   (ii) Exhaustive control;<br/>
+   (iii) Partial control;<br/>
+   (iv) Non-control complementation;<br/>
+   (v) Exhaustive control with inner topicalization;<br/>
+   (vi) Exhaustive control with focus fronting;<br/>
+   (vii) Partial control with inner topicalization;<br/>
+   (viii) Partial control with focus fronting;<br/>
+   (ix) Non-control complementation with inner topicalization;<br/>
+   (x) Non-control complementation with focus fronting.<br/>
    
 3. testsuite.lfg
-   This file contains the sentences to be tested. 
-4. basic-parse-tok.fst
+This file contains the sentences to be tested by parsing them through restructuring.lfg. The
 
-5. default-gen-tokenizer.fst
+ You have now learned how to enter a grammar into the system and how to apply it in the analysis of strings typed into XLE. It is likely for a simple grammar that all the rules are correct and that they are compatible with the lexical entries and morphological rules you have specified. But that is less likely to be true as your grammars become more complex and cover a larger fragment of a natural language. XLE's grammar-debugging facilities can help you explore the linguistic consequences of your grammatical formulations so that you can detect and correct both conceptual errors and errors of specification.
+ 
+5. basic-parse-tok.fst
+
+6. default-gen-tokenizer.fst
    
 
 ## An illustration
