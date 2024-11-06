@@ -45,7 +45,7 @@ A simple tokenizer for generation (this is a binary file)
    NB: XLE makes it simple to integrate finite-state tokenizers into the grammar. Tokenizers insert token boundaries between words and perform tasks such as splitting punctuation off of words and lowercase initial capitals.
 
 ## An illustration
-Once a sentence is parsed, summary details—showing the count of f-structure solutions, the computation time, and the number of subtrees—are displayed below the sentence in the XLE window, with the cursor positioned at the prompt for parsing the next sentence. The linguistic representations of the sentence appear in the C-structure and F-structure windows. The following illustrates the parsing results of three examples using the gramamr.
+Once a sentence is parsed, summary details—showing the count of f-structure solutions, the computation time, and the number of subtrees—are displayed below the sentence in the XLE window, with the cursor positioned at the prompt for parsing the next sentence. The linguistic representations of the sentence appear in the C-structure and F-structure windows. The following illustrates the parsing results of two examples using the gramamr.
 
 ```
 % parse {xiaoming shefa mingtian wancheng zhexiang gongzuo}
