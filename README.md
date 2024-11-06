@@ -48,13 +48,22 @@ A simple tokenizer for generation (this is a binary file)
 Once a sentence is parsed, summary details—showing the count of f-structure solutions, the computation time, and the number of subtrees—are displayed below the sentence in the XLE window, with the cursor positioned at the prompt for parsing the next sentence. The linguistic representations of the sentence appear in the C-structure and F-structure windows. The following illustrates the parsing results of three examples using the gramamr.
 
 ```
-% parse {the girl devours a banana}
-parsing {the girl devours a banana}
-1 solutions, 0.01 CPU seconds, 13 subtrees
+% parse {xiaoming shefa mingtian wancheng zhexiang gongzuo}
+parsing {xiaoming shefa mingtian wancheng zhexiang gongzuo}
+1 solutions, 0.009 CPU seconds, 0.328MB max mem, 37 subtrees unified
 1
-%
 ```
+<img width="488" alt="shefa_c-str" src="https://github.com/user-attachments/assets/5bf19465-c99d-4db4-b292-c7d8bf8729ad">
+<img width="451" alt="shefa_f-str" src="https://github.com/user-attachments/assets/48b9d845-b645-4020-8095-739c6ffd9975">
 
+```
+% parse {xiaoming jueding lian zhexiang gongzuo dou mingtian wancheng}
+parsing {xiaoming jueding lian zhexiang gongzuo dou mingtian wancheng}
+2 solutions, 0.010 CPU seconds, 0.304MB max mem, 38 subtrees unified
+2
+```
+<img width="514" alt="jueding_c-str" src="https://github.com/user-attachments/assets/570a9369-6e53-44ef-8c7e-925138194c4f">
+<img width="495" alt="jueding_f-str" src="https://github.com/user-attachments/assets/ef6f8ac0-f576-451a-8d97-fe22f20c6fc5">
 
 
 ## Further information
